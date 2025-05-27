@@ -85,6 +85,8 @@ int main(int argc, char** argv)
 
 	// other possible commands from SQL (update, delete, etc.), try those. Same concept, create string then call command
 
+	cout << "End it all" << endl;
+
 
 	cout << "Hello" << endl;
 	
