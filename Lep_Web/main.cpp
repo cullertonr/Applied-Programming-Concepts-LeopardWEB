@@ -86,8 +86,7 @@ int main(int argc, char** argv)
 	// other possible commands from SQL (update, delete, etc.), try those. Same concept, create string then call command
 
 
-	// end me
-	cout << "Hello";
+	cout << "Hello" << endl;
 	
 
 	sqlite3_close(DB);
