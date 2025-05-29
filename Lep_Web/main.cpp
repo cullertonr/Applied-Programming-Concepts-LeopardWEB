@@ -64,7 +64,8 @@ int main(int argc, char** argv)
 		"INSERT INTO COURSE VALUES(18001, 'ORGANIC CHEMISTRY 2', 'BSAS', '10:00-11:15', 'MWF', 'FALL', 2025, 4);"
 	);*/
 
-	string sql(
+	string sql("INSERT INTO STUDENT VALUES('Steven', 'Smith', 2, 'BSEE', 'smiths5');"
+		"INSERT INTO STUDENT VALUES('John', 'Jones', 3, 'BSCO', 'jonesj1');"
 
 	);
 
