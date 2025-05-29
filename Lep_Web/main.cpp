@@ -57,7 +57,11 @@ int main(int argc, char** argv)
 	********************************************************************/
 	// hard-code (push) a few values into the database - NOTE you can create a single string with multiple INSERT commands
 	string sql("INSERT INTO COURSE VALUES(30292, 'CALCULUS', 'MATH', '12:00-2:00', 'MWF', 'SPRING', 2025, 4);"
-		"INSERT INTO COURSE VALUES(30, 'DISCRETE', 'MATH', '12:00-1:00', 'MTF', 'SPRING', 2025, 3);"
+		"INSERT INTO COURSE VALUES(31001, 'THERMODYNAMICS', 'BSME', '8:00-9:50', 'TRF', 'FALL', 2025, 4);"
+		"INSERT INTO COURSE VALUES(25002 'COMPUTER SCIENCE 1', 'BCOS', '9:30-10:45', 'MW', 'FALL', 2025, 4);"
+		"INSERT INTO COURSE VALUES(32001, 'ADVANCED DIGITAL CIRCUIT DESIGN', 'BSCO', '12:30-1:45', 'MW', 'SUMMER', 2026, 4);"
+		"INSERT INTO COURSE VALUES(25001, 'NETWORK THEORY 1', 'BSEE', '3:00-4:15', 'TR', 'SPRING', 2026, 3);"
+		"INSERT INTO COURSE VALUES(18001, 'ORGANIC CHEMISTRY 2', 'BSAS', '10:00-11:15', 'MWF', 'FALL', 2025, 4);"
 	);
 
 	// execute the command
