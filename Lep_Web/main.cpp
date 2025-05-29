@@ -56,12 +56,16 @@ int main(int argc, char** argv)
 	 Create a string then pass the string into the sqlite3_exec function
 	********************************************************************/
 	// hard-code (push) a few values into the database - NOTE you can create a single string with multiple INSERT commands
-	string sql("INSERT INTO COURSE VALUES(30292, 'CALCULUS', 'MATH', '12:00-2:00', 'MWF', 'SPRING', 2025, 4);"
+	/*string sql("INSERT INTO COURSE VALUES(30292, 'CALCULUS', 'MATH', '12:00-2:00', 'MWF', 'SPRING', 2025, 4);"
 		"INSERT INTO COURSE VALUES(31001, 'THERMODYNAMICS', 'BSME', '8:00-9:50', 'TRF', 'FALL', 2025, 4);"
-		"INSERT INTO COURSE VALUES(25002 'COMPUTER SCIENCE 1', 'BCOS', '9:30-10:45', 'MW', 'FALL', 2025, 4);"
+		"INSERT INTO COURSE VALUES(25002, 'COMPUTER SCIENCE 1', 'BCOS', '9:30-10:45', 'MW', 'FALL', 2025, 4);"
 		"INSERT INTO COURSE VALUES(32001, 'ADVANCED DIGITAL CIRCUIT DESIGN', 'BSCO', '12:30-1:45', 'MW', 'SUMMER', 2026, 4);"
 		"INSERT INTO COURSE VALUES(25001, 'NETWORK THEORY 1', 'BSEE', '3:00-4:15', 'TR', 'SPRING', 2026, 3);"
 		"INSERT INTO COURSE VALUES(18001, 'ORGANIC CHEMISTRY 2', 'BSAS', '10:00-11:15', 'MWF', 'FALL', 2025, 4);"
+	);*/
+
+	string sql(
+
 	);
 
 	// execute the command
@@ -101,16 +105,16 @@ int main(int argc, char** argv)
 	//else
 	//	std::cout << "Record deleted Successfully!" << std::endl;
 
-	//string drop_table = "DROP TABLE IF EXISTS COURSE;";
-	//exit = sqlite3_exec(DB, drop_table.c_str(), NULL, 0, &messageError);
+	/*string drop_table = "DROP TABLE IF EXISTS COURSE;";
+	exit = sqlite3_exec(DB, drop_table.c_str(), NULL, 0, &messageError);
 
-	//if (exit != SQLITE_OK)
-	//{
-	//	std::cerr << "Error dropping table: " << messageError << std::endl;
-	//	sqlite3_free(messageError);
-	//}
-	//else
-	//	std::cout << "COURSES table dropped successfully!" << std::endl;
+	if (exit != SQLITE_OK)
+	{
+		std::cerr << "Error dropping table: " << messageError << std::endl;
+		sqlite3_free(messageError);
+	}
+	else
+		std::cout << "COURSES table dropped successfully!" << std::endl;*/
 
 	sqlite3_close(DB);
 	return 0;
