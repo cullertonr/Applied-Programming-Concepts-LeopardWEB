@@ -85,9 +85,10 @@ int main(int argc, char** argv)
 	 print all data in the table with SELECT * FROM
 	 create string with query then execute
 	 **********************************************/
-	string query = "SELECT STUDENT.SURNAME FROM STUDENT WHERE STUDENT.GRADYEAR > 2000;";
 
-	cout << endl << query << endl;		//print the string to screen
+	string query = "SELECT INSTRUCTOR.NAME, INSTRUCTOR.DEPT, COURSE.TITLE FROM INSTRUCTOR, COURSE WHERE INSTRUCTOR.DEPT = COURSE.DEPARTMENT;";
+
+	cout << endl << query << endl << "lllllll" << endl;		//print the string to screen
 
 	// you need the callback function this time since there could be multiple rows in the table
 	sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
