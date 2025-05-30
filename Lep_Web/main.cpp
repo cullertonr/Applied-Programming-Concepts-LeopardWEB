@@ -116,6 +116,19 @@ int main(int argc, char** argv)
 	else
 		std::cout << "COURSES table dropped successfully!" << std::endl;*/
 
+		// update the admin in the database
+	string update = "UPDATE ADMIN SET TITLE = 'Vice-President' WHERE NAME = 'Vera';";
+
+	exit = sqlite3_exec(DB, update.c_str(), NULL, 0, &messageError);
+
+	if (exit != SQLITE_OK)
+	{
+		std::cerr << "Error Updating Admin" << std::endl;
+		sqlite3_free(messageError);
+	}
+	else
+		std::cout << "Admin Updated Successfully" << std::endl;
+
 	sqlite3_close(DB);
 	return 0;
 }
