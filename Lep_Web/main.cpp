@@ -65,6 +65,7 @@ int main(int argc, char** argv)
 	);*/
 
 	string sql(
+		"INSERT INTO STUDENT VALUES(10012, 'John', 'Jones', 3099, 'BSCO', 'jonesj1');"
 	);
 
 	// execute the command
@@ -84,7 +85,7 @@ int main(int argc, char** argv)
 	 print all data in the table with SELECT * FROM
 	 create string with query then execute
 	 **********************************************/
-	string query = "SELECT * FROM COURSE;";
+	string query = "SELECT STUDENT.SURNAME FROM STUDENT WHERE STUDENT.GRADYEAR > 2000;";
 
 	cout << endl << query << endl;		//print the string to screen
 
@@ -92,7 +93,7 @@ int main(int argc, char** argv)
 	sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
 	// other possible commands from SQL (update, delete, etc.), try those. Same concept, create string then call command
-	//string delete_sql = "DELETE FROM INSTRUCTOR WHERE DEPT = 'HUSS';";
+	//string delete_sql = "DELETE FROM INSTRUCTOR WHERE DEPARTMENT = 'HUSS';";
 
 	//exit = sqlite3_exec(DB, delete_sql.c_str(), NULL, 0, &messageError);
 
@@ -114,19 +115,6 @@ int main(int argc, char** argv)
 	}
 	else
 		std::cout << "COURSES table dropped successfully!" << std::endl;*/
-
-	// update the admin in the database
-	string update = "UPDATE ADMIN SET TITLE = 'Vice-President' WHERE NAME = 'Vera';";
-
-	exit = sqlite3_exec(DB, update.c_str(), NULL, 0, &messageError);
-
-	if (exit != SQLITE_OK)
-	{
-		std::cerr << "Error Updating Admin" << std::endl;
-		sqlite3_free(messageError);
-	}
-	else
-		std::cout << "Admin Updated Successfully" << std::endl;
 
 	sqlite3_close(DB);
 	return 0;
