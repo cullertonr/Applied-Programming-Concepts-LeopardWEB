@@ -15,6 +15,11 @@ public:
 	// constructor
 	user();
 	user(string in_first_name, string in_last_name, string in_id);
+	
+	// set functions
+	void setFirst_Name(string in_first_name);
+	void setLast_Name(string in_last_name);
+	void setID(string in_id);
 
 	// method
 	virtual string show_first_name();	// returns first name

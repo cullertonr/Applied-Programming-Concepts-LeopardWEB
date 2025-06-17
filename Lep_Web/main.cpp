@@ -66,6 +66,7 @@ int main(int argc, char** argv)
 
 	string sql(
 		"INSERT INTO STUDENT VALUES(10012, 'John', 'Jones', 3099, 'BSCO', 'jonesj1');"
+		"INSERT INTO STUDENT VALUES(10011, 'Steven', 'Smith', 2022, 'BSEE', 'smiths5');"
 	);
 
 	// execute the command
@@ -93,18 +94,18 @@ int main(int argc, char** argv)
 	// you need the callback function this time since there could be multiple rows in the table
 	sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
-	// other possible commands from SQL (update, delete, etc.), try those. Same concept, create string then call command
-	//string delete_sql = "DELETE FROM INSTRUCTOR WHERE DEPARTMENT = 'HUSS';";
+	// command to delete the instructor of choice, in this case the HUSS instructor is getting removed because they do not align with the courses that were created
+	string delete_sql = "DELETE FROM INSTRUCTOR WHERE DEPARTMENT = 'HUSS';";
 
-	//exit = sqlite3_exec(DB, delete_sql.c_str(), NULL, 0, &messageError);
+	exit = sqlite3_exec(DB, delete_sql.c_str(), NULL, 0, &messageError);
 
-	//if (exit != SQLITE_OK)
-	//{
-	//	std::cerr << "Error Delete" << std::endl;
-	//	sqlite3_free(messageError);
-	//}
-	//else
-	//	std::cout << "Record deleted Successfully!" << std::endl;
+	if (exit != SQLITE_OK)
+	{
+		std::cerr << "Error Delete" << std::endl;
+		sqlite3_free(messageError);
+	}
+	else
+		std::cout << "Record deleted Successfully!" << std::endl;
 
 	/*string drop_table = "DROP TABLE IF EXISTS COURSE;";
 	exit = sqlite3_exec(DB, drop_table.c_str(), NULL, 0, &messageError);
@@ -117,7 +118,7 @@ int main(int argc, char** argv)
 	else
 		std::cout << "COURSES table dropped successfully!" << std::endl;*/
 
-		// update the admin in the database
+		// update the admin in the database changing vera rubens title to vice-pres from registrar
 	string update = "UPDATE ADMIN SET TITLE = 'Vice-President' WHERE NAME = 'Vera';";
 
 	exit = sqlite3_exec(DB, update.c_str(), NULL, 0, &messageError);

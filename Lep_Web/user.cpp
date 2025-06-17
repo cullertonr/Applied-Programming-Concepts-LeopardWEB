@@ -16,6 +16,17 @@ user::user(string in_first_name, string in_last_name, string in_id) {
 	id = in_id;
 }
 
+// set functions
+void user::setFirst_Name(string in_first_name) {
+	first_name = in_first_name;
+}
+void user::setLast_Name(string in_last_name) {
+	last_name = in_last_name;
+}
+void setID(string in_id) {
+	id = in_id;
+}
+
 // methods
 string user::show_first_name() {
 	return first_name;
@@ -31,6 +42,8 @@ void user::show_all() {
 	cout << "last name: " << last_name << endl;
 	cout << "id number: " << id << endl;
 }
+
+// deconstructor
 user::~user() {
 
 }
