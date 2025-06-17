@@ -23,7 +23,7 @@ void user::setFirst_Name(string in_first_name) {
 void user::setLast_Name(string in_last_name) {
 	last_name = in_last_name;
 }
-void setID(string in_id) {
+void user::setID(string in_id) {
 	id = in_id;
 }
 
