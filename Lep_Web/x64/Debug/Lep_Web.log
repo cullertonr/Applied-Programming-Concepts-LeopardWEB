@@ -1,2 +1,3 @@
-﻿  main.cpp
+﻿  database.cpp
+C:\Users\nickd\OneDrive\Documents\GitHub\Applied-Programming-Concepts-LeopardWEB\Project\Lep_Web\Lep_Web\database.cpp(27,8): warning C4101: 'messageError': unreferenced local variable
   Lep_Web.vcxproj -> C:\Users\nickd\OneDrive\Documents\GitHub\Applied-Programming-Concepts-LeopardWEB\Project\Lep_Web\x64\Debug\Lep_Web.exe

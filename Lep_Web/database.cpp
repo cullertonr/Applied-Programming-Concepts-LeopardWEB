@@ -23,32 +23,28 @@ static int callback(void* data, int argc, char** argv, char** azColName)
 int main(int argc, char** argv)
 {
 	sqlite3* DB;
-
-	string table = "CREATE TABLE COURSE("
-		"CRN INTEGER PRIMARY KEY, "
-		"TITLE TEXT NOT NULL, "
-		"DEPARTMENT TEXT NOT NULL, "
-		"TIME TEXT NOT NULL, "
-		"DAYSOFTHEWEEK TEXT NOT NULL, "
-		"SEMESTER TEXT NOT NULL,"
-		"YEAR INTEGER NOT NULL, "
-		"CREDITS INTEGER NOT NULL); ";
-
 	int exit = 0;
+	char* messageError;
+	//string table = "CREATE TABLE LOGIN("
+	//	"EMAIL TEXT PRIMARY KEY, "
+	//	"ROLE TEXT NOT NULL, "
+	//	"PASSWORD TEXT NOT NULL); ";
+
+	
 
 	exit = sqlite3_open("assignment3.db", &DB);			//open the database
 
-	char* messageError;
+	
 
-	exit = sqlite3_exec(DB, table.c_str(), NULL, 0, &messageError);
+	//exit = sqlite3_exec(DB, table.c_str(), NULL, 0, &messageError);
 
-	if (exit != SQLITE_OK)
-	{
-		std::cerr << "Error Create Table" << std::endl;
-		sqlite3_free(messageError);
-	}
-	else
-		cout << "Table created Successfully" << std::endl;
+	//if (exit != SQLITE_OK)
+	//{
+	//	std::cerr << "Error Create Table" << std::endl;
+	//	sqlite3_free(messageError);
+	//}
+	//else
+	//	cout << "Table created Successfully" << std::endl;
 
 
 	/*******************************************************************
@@ -64,9 +60,8 @@ int main(int argc, char** argv)
 		"INSERT INTO COURSE VALUES(18001, 'ORGANIC CHEMISTRY 2', 'BSAS', '10:00-11:15', 'MWF', 'FALL', 2025, 4);"
 	);*/
 
-	string sql(
-		"INSERT INTO STUDENT VALUES(10012, 'John', 'Jones', 3099, 'BSCO', 'jonesj1');"
-		"INSERT INTO STUDENT VALUES(10011, 'Steven', 'Smith', 2022, 'BSEE', 'smiths5');"
+	/*string sql(
+		
 	);
 
 	// execute the command
@@ -79,33 +74,46 @@ int main(int argc, char** argv)
 	}
 	else
 		std::cout << "Records created Successfully!" << std::endl;
-
+	*/
 
 
 	/***********************************************
 	 print all data in the table with SELECT * FROM
 	 create string with query then execute
 	 **********************************************/
+	
+	string email, pass;
+	cout << "Enter email: ";
+	cin >> email;
+	cout << "Enter password: ";
+	cin >> pass;
 
-	string query = "SELECT INSTRUCTOR.NAME, INSTRUCTOR.DEPT, COURSE.TITLE FROM INSTRUCTOR, COURSE WHERE INSTRUCTOR.DEPT = COURSE.DEPARTMENT;";
+	string str_1 = "SELECT ROLE FROM LOGIN WHERE EMAIL = '";
+	string str_2 = "' AND PASSWORD = '";
+	string query = str_1 + email + str_2 + pass + "'" + ";";
+	
 
-	cout << endl << query << endl << "lllllll" << endl;		//print the string to screen
+	//cout << query;
+
+	//string query = "SELECT ROLE FROM LOGIN WHERE EMAIL = 'whited' AND PASSWORD = 'Yes123';";
+
+	cout << endl << query << endl;		//print the string to screen
 
 	// you need the callback function this time since there could be multiple rows in the table
 	sqlite3_exec(DB, query.c_str(), callback, NULL, NULL);
 
-	// command to delete the instructor of choice, in this case the HUSS instructor is getting removed because they do not align with the courses that were created
-	string delete_sql = "DELETE FROM INSTRUCTOR WHERE DEPARTMENT = 'HUSS';";
+	//// command to delete the instructor of choice, in this case the HUSS instructor is getting removed because they do not align with the courses that were created
+	//string delete_sql = "DELETE FROM INSTRUCTOR WHERE DEPARTMENT = 'HUSS';";
 
-	exit = sqlite3_exec(DB, delete_sql.c_str(), NULL, 0, &messageError);
+	//exit = sqlite3_exec(DB, delete_sql.c_str(), NULL, 0, &messageError);
 
-	if (exit != SQLITE_OK)
-	{
-		std::cerr << "Error Delete" << std::endl;
-		sqlite3_free(messageError);
-	}
-	else
-		std::cout << "Record deleted Successfully!" << std::endl;
+	//if (exit != SQLITE_OK)
+	//{
+	//	std::cerr << "Error Delete" << std::endl;
+	//	sqlite3_free(messageError);
+	//}
+	//else
+	//	std::cout << "Record deleted Successfully!" << std::endl;
 
 	/*string drop_table = "DROP TABLE IF EXISTS COURSE;";
 	exit = sqlite3_exec(DB, drop_table.c_str(), NULL, 0, &messageError);
@@ -119,17 +127,17 @@ int main(int argc, char** argv)
 		std::cout << "COURSES table dropped successfully!" << std::endl;*/
 
 		// update the admin in the database changing vera rubens title to vice-pres from registrar
-	string update = "UPDATE ADMIN SET TITLE = 'Vice-President' WHERE NAME = 'Vera';";
+	//string update = "UPDATE ADMIN SET TITLE = 'Vice-President' WHERE NAME = 'Vera';";
 
-	exit = sqlite3_exec(DB, update.c_str(), NULL, 0, &messageError);
+	//exit = sqlite3_exec(DB, update.c_str(), NULL, 0, &messageError);
 
-	if (exit != SQLITE_OK)
-	{
-		std::cerr << "Error Updating Admin" << std::endl;
-		sqlite3_free(messageError);
-	}
-	else
-		std::cout << "Admin Updated Successfully" << std::endl;
+	//if (exit != SQLITE_OK)
+	//{
+	//	std::cerr << "Error Updating Admin" << std::endl;
+	//	sqlite3_free(messageError);
+	//}
+	//else
+	//	std::cout << "Admin Updated Successfully" << std::endl;
 
 	sqlite3_close(DB);
 	return 0;
